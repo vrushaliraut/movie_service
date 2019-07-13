@@ -11,11 +11,10 @@ public class ServerFactory {
 
     public static Server createServer() {
         PingController pingController = new PingController();
-        MovieController movieController = new MovieController();
-        final Gson gson = new GsonBuilder()
-                .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+        final Gson snakeCaseGson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
                 .create();
+        MovieController movieController = new MovieController(snakeCaseGson);
 
-        return new Server(pingController, movieController, gson);
+        return new Server(pingController, movieController, snakeCaseGson);
     }
 }
