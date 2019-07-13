@@ -1,7 +1,5 @@
 package com.codelab.contract.request;
 
-import java.util.Objects;
-
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 
 public class MovieRequest {

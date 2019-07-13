@@ -1,7 +1,6 @@
 package com.codelab.controller;
 
 import com.codelab.contract.request.response.MovieResponse;
-import com.codelab.model.Error;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

@@ -12,6 +12,8 @@ public class MovieController {
     private static final String CONTENT_TYPE = "application/json";
     private static final int STATUS_CODE_OK = 200;
     private static final int BAD_REQUEST = 400;
+    private static final String BAD_REQUEST_MSG = "bad request";
+    private static final String  BAD_REQUEST_CODE = "400";
     private final Gson gson;
 
     public MovieController(Gson gson) {
@@ -23,7 +25,7 @@ public class MovieController {
         MovieRequest movieRequest = gson.fromJson(request.body(), MovieRequest.class);
         if (!movieRequest.isValid()) {
             response.status(BAD_REQUEST);
-            return new MovieResponse(false, new Error("400", "bad request"));
+            return new MovieResponse(false, new Error(BAD_REQUEST_CODE, BAD_REQUEST_MSG));
         }
         response.status(STATUS_CODE_OK);
         return new MovieResponse(true, movieRequest.getMovieName());
