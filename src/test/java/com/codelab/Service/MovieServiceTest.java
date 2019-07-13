@@ -19,7 +19,7 @@ public class MovieServiceTest {
     }
 
     @Test
-    public void shouldNotPublishIfReuestIsValid() {
+    public void shouldNotPublishIfRequestIsValid() {
         MovieRequest movieRequest = new MovieRequest("movie_name");
 
         boolean isSuccess = movieService.publish(movieRequest);

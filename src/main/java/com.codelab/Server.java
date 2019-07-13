@@ -23,7 +23,7 @@ public class Server {
     }
 
     public void start() {
-        port(8080);
+        port(8090);
         get("/ping", pingController::ping, gson::toJson);
         post("/publish_movie", movieController::publishMovie, gson::toJson);
     }
