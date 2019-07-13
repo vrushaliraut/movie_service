@@ -8,12 +8,12 @@ public class MovieResponse {
     private Error error;
     private String movieName;
 
-    public MovieResponse(boolean success,String movieName) {
+    public MovieResponse(boolean success, String movieName) {
         this.movieName = movieName;
         this.success = success;
     }
 
-    public MovieResponse(boolean success,Error error) {
+    public MovieResponse(boolean success, Error error) {
         this.success = success;
         this.error = error;
     }

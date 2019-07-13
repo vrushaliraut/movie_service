@@ -14,7 +14,7 @@ public class KafkaRepository {
     private final static String TOPIC = "test";
     private final static String BOOTSTRAP_SERVER = "localhost:9092";
 
-    private Producer<Long, String> createProducer() {
+    private static Producer<Long, String> createProducer() {
         Properties props = new Properties();
 
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_SERVER);
@@ -27,7 +27,7 @@ public class KafkaRepository {
         return new KafkaProducer<>(props);
     }
 
-    public void publish(final String movieName) throws Exception {
+    public static boolean publish(final String movieName) {
 
         final Producer<Long, String> producer = createProducer();
 
@@ -36,8 +36,10 @@ public class KafkaRepository {
 
             producer.send(record).get();
 
-            System.out.println("published to kafka" + record.value());
-
+            System.out.println("published to kafka successfully");
+            return true;
+        } catch (Exception e) {
+            return false;
         } finally {
             producer.flush();
             producer.close();
